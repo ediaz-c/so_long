@@ -12,14 +12,11 @@ LIB		=	ar -rcs
 all:	$(NAME)
 
 $(NAME):	$(OBJS) $(INCLUDE)
-	@$(LIB) -r $@ $?
+	$(LIB) -r $@ $?
 bonus:	 $(BOBJS) $(OBJS)
 	@$(LIB) -r $(NAME) $?
 %.o:%.c
-	@clear
-	@echo "\033[1;34m Compilando\033[0m" "\033[1;31m" $? "\033[0m"
-	@sleep 0.3
-	@$(CC) -c $(CFLAGS) $?
+	$(CC) -c $(CFLAGS) $?
 clean:
 	@$(RM) $(OBJS) $(BOBJS)
 
