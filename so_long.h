@@ -47,7 +47,7 @@ typedef struct s_map
 } t_map;
 
 
-char	**ft_check_map(const char *path);
+char	**ft_gen_map(char *path);
 int		ft_check_file(const char *str);
 void	ft_error(char *str);
 void	ft_free_split(char **array);
