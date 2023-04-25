@@ -32,8 +32,8 @@
 
 typedef struct s_vars
 {
-    int		win_width;
-	int		win_height;
+    int		x;
+	int		y;
 	char	**map;
 } t_vars;
 
@@ -51,4 +51,9 @@ char	**ft_gen_map(char *path);
 int		ft_check_file(const char *str);
 void	ft_error(char *str);
 void	ft_free_split(char **array);
+int		ft_check_long_border(char *border);
+int		ft_check_border(char *border);
+void	ft_char_error(char c);
+void    ft_check_map(t_vars *vars);
+int 	ft_check_char(char c);
 #endif

@@ -17,3 +17,9 @@ void	ft_error(char *str)
 	ft_printf("\033[1;31mERROR: \033[0;97m%s\n", str);
 	exit (1);
 }
+
+void	ft_char_error(char c)
+{
+	ft_printf("\033[1;31mERROR: \033[0;97mEncontrado carácter invalido en el mapa '%c'\n", c);
+	exit (1);
+}
