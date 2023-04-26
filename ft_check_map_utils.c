@@ -42,7 +42,7 @@ int    ft_check_border(char *border)
 
 int ft_check_char(char c)
 {
-    if (c == 'A')
+    if (c == 'Z')
         return (1);
     else if (c == 'C')
         return (1);
@@ -55,4 +55,16 @@ int ft_check_char(char c)
     else if (c == '0')
         return (1);
     return (0);
+}
+
+t_map ft_init_vars()
+{
+    t_map   map;
+
+    map.c = 0;
+    map.e = 0;
+    map.p = 0;
+    map.x = 0;
+    map.y = 0;
+    return (map);
 }

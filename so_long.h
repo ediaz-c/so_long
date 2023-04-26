@@ -35,6 +35,7 @@ typedef struct s_vars
     int		x;
 	int		y;
 	char	**map;
+	int		num_collected;
 } t_vars;
 
 typedef struct s_map
@@ -42,10 +43,23 @@ typedef struct s_map
 	int	c;
 	int	p;
 	int	e;
+	int	z;
 	int	x;
 	int	y;
 } t_map;
 
+typedef struct s_player
+{
+	int x;
+	int y;
+} t_player;
+
+typedef struct s_entity
+{
+	int	x;
+	int	y;
+	int	collected;
+}	t_entity;
 
 char	**ft_gen_map(char *path);
 int		ft_check_file(const char *str);
@@ -54,6 +68,8 @@ void	ft_free_split(char **array);
 int		ft_check_long_border(char *border);
 int		ft_check_border(char *border);
 void	ft_char_error(char c);
-void    ft_check_map(t_vars *vars);
+int    ft_check_map(t_vars *vars);
 int 	ft_check_char(char c);
+t_map 	ft_init_vars();
+int ft_check_wayout(char **map, t_player player);
 #endif
