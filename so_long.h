@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 11:25:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/23 11:35:04 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:41:04 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <mlx.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "./libft/libft.h"
-#include "./printf/ft_printf.h"
-#include "./gnl/get_next_line.h"
+# include "./gnl/get_next_line.h"
+# include "./libft/libft.h"
+# include "./printf/ft_printf.h"
+# include <mlx.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 # define KEY_W 13
 # define KEY_A 0
@@ -32,44 +32,62 @@
 
 typedef struct s_vars
 {
-    int		x;
+	int		x;
 	int		y;
 	char	**map;
+	char	**map_game;
 	int		num_collected;
-} t_vars;
+}			t_vars;
 
 typedef struct s_map
 {
-	int	c;
-	int	p;
-	int	e;
-	int	z;
-	int	x;
-	int	y;
-} t_map;
+	int		c;
+	int		p;
+	int		e;
+	int		z;
+	int		x;
+	int		y;
+}			t_map;
 
 typedef struct s_player
 {
-	int x;
-	int y;
-} t_player;
+	int		x;
+	int		y;
+}			t_player;
 
 typedef struct s_entity
 {
-	int	x;
-	int	y;
-	int	collected;
-}	t_entity;
+	int		x;
+	int		y;
+	int		collected;
+}			t_entity;
 
-char	**ft_gen_map(char *path);
-int		ft_check_file(const char *str);
-void	ft_error(char *str);
-void	ft_free_split(char **array);
-int		ft_check_long_border(char *border);
-int		ft_check_border(char *border);
-void	ft_char_error(char c);
-int    ft_check_map(t_vars *vars);
-int 	ft_check_char(char c);
-t_map 	ft_init_vars();
-int ft_check_wayout(char **map, t_player player);
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*mlx_win;
+	void	*img_floor;
+	void	*img_wall;
+	char	*path;
+	int		img_height;
+	int		img_width;
+}			t_mlx;
+
+char		**ft_gen_map(char *path);
+int			ft_check_file(const char *str);
+void		ft_error(char *str);
+void		ft_free_split(char **array);
+int			ft_check_long_border(char *border);
+int			ft_check_border(char *border);
+void		ft_char_error(char c);
+int			ft_check_map(t_vars *vars);
+int			ft_check_char(char c);
+t_map		ft_init_vars(void);
+int			ft_check_wayout(t_vars *vars, t_player *player);
+char		**ft_cpy_map(char **map);
+void		ft_free_matriz(char **matriz);
+void		ft_init_game(t_vars *vars);
+t_entity	*ft_find_entity(char **map, int n_entity);
+void		ft_print_map(char **map);
+t_player	*ft_find_player(char **map);
 #endif

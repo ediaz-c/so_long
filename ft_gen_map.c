@@ -14,65 +14,65 @@
 
 /* Abrir el archivo y generar una matriz*/
 
-static char *ft_read_file(char *path)
+static char	*ft_read_file(char *path)
 {
-    int     fd;
-    char    *line;
-    char    *all_lines;
+	int		fd;
+	char	*line;
+	char	*all_lines;
 
-    all_lines = ft_strdup("");
-    line = NULL;
-    fd = open(path, O_RDONLY);
-    if (fd == -1)
-        ft_error("Error al abrir el archivo");
-    while (1)
-    {
-        line = get_next_line(fd);
-        if (line == NULL)
-            break ;
-        all_lines = ft_strjoin(all_lines, line);
-        free(line);
-        line = NULL;
-    }
-    return (all_lines);
+	all_lines = ft_strdup("");
+	line = NULL;
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		ft_error("Error al abrir el archivo");
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		all_lines = ft_strjoin(all_lines, line);
+		free(line);
+		line = NULL;
+	}
+	return (all_lines);
 }
 
-static int  ft_check_lines(char **map)
+static int	ft_check_lines(char **map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (map[i])
-    {
-        if (ft_strlen(map[i]) == ft_strlen(map[i + 1]))
-            i++;
-        else if (map[i + 1] == NULL)
-            i++;
-        else
-            break ;
-    }
-    if (i < 3 || map[i] != NULL)
-        return (0);
-    return (1);
+	i = 0;
+	while (map[i])
+	{
+		if (ft_strlen(map[i]) == ft_strlen(map[i + 1]))
+			i++;
+		else if (map[i + 1] == NULL)
+			i++;
+		else
+			break ;
+	}
+	if (i < 3 || map[i] != NULL)
+		return (0);
+	return (1);
 }
 
-char **ft_gen_map(char *path)
+char	**ft_gen_map(char *path)
 {
-    char    *all_lines;
-    char    **matriz;
+	char	*all_lines;
+	char	**matriz;
 
-    all_lines = ft_read_file(path);
-    if (all_lines == NULL)
-        return (NULL);
-    matriz = ft_split(all_lines, '\n');
-    free(all_lines);
-    if (matriz == NULL)
-        return (NULL);
-    if (ft_check_lines(matriz) == 0)
-        {
-            free(matriz);
-            ft_error("Tamaño del mapa invalido");
-            return (NULL);
-        }
-    return (matriz);
+	all_lines = ft_read_file(path);
+	if (all_lines == NULL)
+		return (NULL);
+	matriz = ft_split(all_lines, '\n');
+	free(all_lines);
+	if (matriz == NULL)
+		return (NULL);
+	if (ft_check_lines(matriz) == 0)
+	{
+		free(matriz);
+		ft_error("Tamaño del mapa invalido");
+		return (NULL);
+	}
+	return (matriz);
 }
