@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 11:25:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/28 12:41:04 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:10:56 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@
 
 typedef struct s_vars
 {
-	int		x;
-	int		y;
-	char	**map;
-	char	**map_game;
-	int		num_collected;
+	int				x;
+	int				y;
+	char			**map;
+	char			**map_game;
+	int				num_collected;
+	struct s_player	*player;
+	struct s_entity	*entity;
+	struct s_mlx	*mlx;
 }			t_vars;
 
 typedef struct s_map
@@ -51,8 +54,10 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int		x;
-	int		y;
+	int			x;
+	int			y;
+	void		*img_player;
+	int	move;
 }			t_player;
 
 typedef struct s_entity
@@ -90,4 +95,8 @@ void		ft_init_game(t_vars *vars);
 t_entity	*ft_find_entity(char **map, int n_entity);
 void		ft_print_map(char **map);
 t_player	*ft_find_player(char **map);
+void	ft_up(t_vars *vars, int *i, int *j);
+void	ft_down(t_vars *vars, int *i, int *j);
+void	ft_right(t_vars *vars, int *i, int *j);
+void	ft_left(t_vars *vars, int *i, int *j);
 #endif

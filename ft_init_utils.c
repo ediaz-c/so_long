@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:29:32 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/28 10:49:54 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:06:26 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ t_player	*ft_find_player(char **map)
 			}
 		}
 	}
+	player->move = 0;
 	return (player);
 }
