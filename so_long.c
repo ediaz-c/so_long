@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:48 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/28 12:49:16 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:46:56 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int ac, char *av[])
 		return (0);
 	if (ft_check_map(&vars))
 	{
-		ft_init_game(&vars);
+		ft_game(&vars);
 	}
 	ft_printf("\n\033[0;92mVA BIEN\n\033[0m");
 	system("leaks a.out");

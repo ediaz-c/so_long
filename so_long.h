@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 11:25:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/29 18:10:56 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/01 20:32:37 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_vars
 	struct s_player	*player;
 	struct s_entity	*entity;
 	struct s_mlx	*mlx;
+	struct s_exit	*exit;
 }			t_vars;
 
 typedef struct s_map
@@ -54,16 +55,19 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int			x;
-	int			y;
-	void		*img_player;
-	int	move;
+	int					x;
+	int					y;
+	int					move;
+	int					rupees;
+	void				*img_current;
+	struct s_p_sprites	*imgs;
 }			t_player;
 
 typedef struct s_entity
 {
 	int		x;
 	int		y;
+	void	*img;
 	int		collected;
 }			t_entity;
 
@@ -78,6 +82,24 @@ typedef struct s_mlx
 	int		img_width;
 }			t_mlx;
 
+typedef	struct s_p_sprites
+{
+	void	*img_front;
+	void	*img_back;
+	void	*img_right;
+	void	*img_left;
+} t_p_sprites;
+
+typedef struct s_exit
+{
+	int	x;
+	int	y;
+	void	*img_close;
+	void	*img_open;
+	void	*img_current;
+}t_exit;
+
+
 char		**ft_gen_map(char *path);
 int			ft_check_file(const char *str);
 void		ft_error(char *str);
@@ -91,12 +113,21 @@ t_map		ft_init_vars(void);
 int			ft_check_wayout(t_vars *vars, t_player *player);
 char		**ft_cpy_map(char **map);
 void		ft_free_matriz(char **matriz);
-void		ft_init_game(t_vars *vars);
+void		ft_game(t_vars *vars);
 t_entity	*ft_find_entity(char **map, int n_entity);
 void		ft_print_map(char **map);
 t_player	*ft_find_player(char **map);
-void	ft_up(t_vars *vars, int *i, int *j);
-void	ft_down(t_vars *vars, int *i, int *j);
-void	ft_right(t_vars *vars, int *i, int *j);
-void	ft_left(t_vars *vars, int *i, int *j);
+int		ft_up(t_vars *vars, int *i, int *j);
+int		ft_down(t_vars *vars, int *i, int *j);
+int		ft_right(t_vars *vars, int *i, int *j);
+int		ft_left(t_vars *vars, int *i, int *j);
+void	ft_init_game(t_vars *vars);
+void	ft_render_map(char **map, t_mlx *mlx);
+int	ft_init_player(t_vars *vars);
+int	ft_render_player(t_vars *vars);
+void	ft_init_entity(t_vars *vars);
+int	ft_render(t_vars *vars);
+t_exit	*ft_find_exit(char	**map);
+void	ft_init_door(t_vars *vars);
+int ft_close(int key, t_mlx *mlx);
 #endif

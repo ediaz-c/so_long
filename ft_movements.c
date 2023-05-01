@@ -6,13 +6,13 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:14:22 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/29 18:17:13 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:36:13 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_up(t_vars *vars, int *i, int *j)
+int	ft_up(t_vars *vars, int *i, int *j)
 {
 	t_player	*player;
 	t_mlx		*mlx;
@@ -21,11 +21,15 @@ void	ft_up(t_vars *vars, int *i, int *j)
 	player = vars->player;
 	mlx = vars->mlx;
 	map = vars->map;
-	player->img_player = mlx_xpm_file_to_image(mlx->mlx, "./images/player/link_back_stop.xpm", i, j);
+	player->img_current = player->imgs->img_back;
 	if (map[player->y - 1][player->x] != '1')
+	{
 		player->y -= 1;
+		return (1);
+	}
+	return (0);
 }
-void	ft_down(t_vars *vars, int *i, int *j)
+int	ft_down(t_vars *vars, int *i, int *j)
 {
 	t_player	*player;
 	t_mlx		*mlx;
@@ -34,11 +38,15 @@ void	ft_down(t_vars *vars, int *i, int *j)
 	map = vars->map;
 	player = vars->player;
 	mlx = vars->mlx;
-	player->img_player = mlx_xpm_file_to_image(mlx->mlx, "./images/player/link_front_stop.xpm", i, j);
+	player->img_current = player->imgs->img_front;
 	if (map[player->y + 1][player->x] != '1')
+	{
 		player->y += 1;
+		return (1);
+	}
+	return (0);
 }
-void	ft_right(t_vars *vars, int *i, int *j)
+int	ft_right(t_vars *vars, int *i, int *j)
 {
 	t_player	*player;
 	t_mlx		*mlx;
@@ -47,11 +55,15 @@ void	ft_right(t_vars *vars, int *i, int *j)
 	map = vars->map;
 	player = vars->player;
 	mlx = vars->mlx;
-	player->img_player = mlx_xpm_file_to_image(mlx->mlx, "./images/player/link_right_stop.xpm", i, j);
+	player->img_current = player->imgs->img_right;
 	if (map[player->y][player->x + 1] != '1')
+	{
 		player->x += 1;
+		return (1);
+	}
+	return (0);
 }
-void	ft_left(t_vars *vars, int *i, int *j)
+int	ft_left(t_vars *vars, int *i, int *j)
 {
 	t_player	*player;
 	t_mlx		*mlx;
@@ -60,7 +72,22 @@ void	ft_left(t_vars *vars, int *i, int *j)
 	map = vars->map;
 	player = vars->player;
 	mlx = vars->mlx;
-	player->img_player = mlx_xpm_file_to_image(mlx->mlx, "./images/player/link_left_stop.xpm", i, j);
+	player->img_current = player->imgs->img_left;
 	if (map[player->y][player->x - 1] != '1')
+	{
 		player->x -= 1;
+		return (1);
+	}
+	return (0);
+}
+
+int	ft_render_player(t_vars *vars)
+{
+	t_player *player;
+	t_mlx	*mlx;
+
+	player = vars->player;
+	mlx = vars->mlx;
+	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, player->img_current, (player->x * 64) + 6 , player->y * 64);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:29:32 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/29 18:06:26 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/01 20:11:41 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_entity	*ft_find_entity(char **map, int n_entity)
 
 	i = -1;
 	num_collect = 0;
-	entity = malloc(sizeof(t_entity) * (n_entity));
+	entity = malloc(sizeof(t_entity) * (n_entity + 1));
 	if (entity == NULL)
 		return (NULL);
 	while (map[++i])
@@ -63,6 +63,33 @@ t_player	*ft_find_player(char **map)
 			}
 		}
 	}
+	player->rupees = 0;
 	player->move = 0;
 	return (player);
+}
+
+t_exit	*ft_find_exit(char	**map)
+{
+	int		x;
+	int		y;
+	t_exit	*door;
+	
+	door = malloc(sizeof(t_exit));
+	if (door == NULL)
+		return (NULL);
+	y = -1;
+	while (map[++y])
+	{
+		x = -1;
+		while (map[y][++x])
+		{
+			if (map[y][x] == 'E')
+			{
+				door->x = x;
+				door->y = y;
+			}
+		}
+	}
+
+	return (door);
 }
