@@ -6,7 +6,7 @@
 #    By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:32:01 by ediaz--c          #+#    #+#              #
-#    Updated: 2023/05/02 17:59:52 by ediaz--c         ###   ########.fr        #
+#    Updated: 2023/05/02 18:25:26 by ediaz--c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ $(NAME):	$(OBJS_GAME) $(OBJS_GNL)
 	@echo $(BBlue) "Creando Libreria de PRINTF" $(Off)
 	@make -C printf/
 	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJS_GAME) $(OBJS_GNL) -o $(NAME)
-
 
 clean:
 	@sleep 0.5
