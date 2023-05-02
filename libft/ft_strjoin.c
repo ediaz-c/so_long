@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:15:47 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/21 16:58:27 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:58:31 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s2++;
 	}
 	str[i] = '\0';
-	free(s1);
 	return (str);
 }

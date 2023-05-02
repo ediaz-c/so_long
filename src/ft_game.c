@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/02 16:50:54 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:04:31 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	ft_render_map(char **map, t_mlx *mlx)
 int ft_close(int key, t_mlx *mlx)
 {
 	if (key)
-	mlx_destroy_window(mlx->mlx, mlx->mlx_win);
+		mlx_destroy_window(mlx->mlx, mlx->mlx_win);
+	// system("leaks a.out");
 	exit(1);
 	return (1);
 }
