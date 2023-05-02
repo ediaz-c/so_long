@@ -6,12 +6,12 @@
 #    By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:32:01 by ediaz--c          #+#    #+#              #
-#    Updated: 2023/05/02 16:19:28 by ediaz--c         ###   ########.fr        #
+#    Updated: 2023/05/02 17:51:43 by ediaz--c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
-RM			=	rm -f
+RM			=	rm -rf
 CC			=	cc
 CFLAGS		=	-Wall -Werror -Wextra
 INCLUDE		=	-lmlx -framework AppKit -framework OpenGL
@@ -24,9 +24,9 @@ OBJS_GNL	=	$(SRC_GNL:.c=.o)
 
 GAME		=	ft_check_file.c ft_check_map.c ft_check_map_utils.c ft_check_wayout.c ft_error.c ft_free.c ft_game.c ft_gen_map.c ft_init_game.c ft_init_player_entity.c ft_init_utils.c ft_movements.c ft_print_map.c ft_render.c so_long.c
 SRC_GAME	=	$(addprefix src/, $(GAME))
-OBJS_GAME	=	$(SRC_GAME:.c=.o)
+OBJS_GAME	=	src/*.c
 
-Off		=	"\[\033[0m\]"
+Off		=	"\033[0m"
 BBlack	=	"\033[1;30m"
 BRed	=	"\033[1;31m"
 BGreen	=	"\033[1;32m"
@@ -38,11 +38,34 @@ BWhite	=	"\033[1;37m"
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS_GAME) $(OBJS_GNL)
-	# @echo $(BBlue) "Creando Libreria de LIBFT" (Off)
+$(NAME):	$(OBJS_GAME) $(OBJS_GNL) 
+	@echo $(BBlue) "Creando Libreria de LIBFT" $(Off)
 	@make -C libft/
-	# @echo $(BBlue) "Creando Libreria de PRINTF" (Off)
+	@echo $(BBlue) "Creando Libreria de PRINTF" $(Off)
 	@make -C printf/
-	$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJS_GAME) $(OBJS_GNL) -o $(NAME)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJS_GAME) $(OBJS_GNL) -o $(NAME)
 
 
+clean:
+	@sleep 0.5
+	@printf $(BBlue)"Eliminando objetos:\n"$(BRed)" ✅ Libft\n"
+	@make clean -C libft
+	@sleep 0.5
+	@printf " ✅ Printf\n"
+	@make clean -C printf
+	@sleep 0.5; printf " ✅ Get_next_line\n"
+	@sleep 0.5; printf  " ✅ So_long\n\n"$(Off)
+	@$(RM) $(OBJS_GAME) $(OBJS_GNL)
+
+fclean:	clean
+	@sleep 0.5; printf $(BBlue)"Eliminando:\n"$(BRed)
+	@sleep 0.5; printf " ✅ libft.a\n"
+	@make fclean -C libft
+	@sleep 0.5; printf " ✅ libftprintf.a\n"
+	@make fclean -C printf
+	@sleep 0.5; printf " ✅ so_long\n"$(Off)
+	@$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: re clean fclean
