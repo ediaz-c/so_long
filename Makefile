@@ -6,7 +6,7 @@
 #    By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:32:01 by ediaz--c          #+#    #+#              #
-#    Updated: 2023/05/02 18:25:26 by ediaz--c         ###   ########.fr        #
+#    Updated: 2023/05/03 17:54:49 by ediaz--c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,9 @@ OBJS_GNL	=	$(SRC_GNL:.c=.o)
 GAME		=	ft_check_file.c ft_check_map.c ft_check_map_utils.c ft_check_wayout.c ft_error.c ft_free.c ft_game.c ft_gen_map.c ft_init_game.c ft_init_player_entity.c ft_init_utils.c ft_movements.c ft_print_map.c ft_render.c so_long.c
 SRC_GAME	=	$(addprefix src/, $(GAME))
 OBJS_GAME	=	$(SRC_GAME:.c=.o)
+
+# BONUS
+
 
 Off		=	"\033[0m"
 BBlack	=	"\033[1;30m"
@@ -45,6 +48,8 @@ $(NAME):	$(OBJS_GAME) $(OBJS_GNL)
 	@make -C printf/
 	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJS_GAME) $(OBJS_GNL) -o $(NAME)
 
+bonus:
+	
 clean:
 	@sleep 0.5
 	@printf $(BBlue)"Eliminando objetos:\n"$(BRed)" ✅ Libft\n"

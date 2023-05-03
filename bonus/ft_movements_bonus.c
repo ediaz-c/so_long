@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_movements.c                                     :+:      :+:    :+:   */
+/*   ft_movements_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:14:22 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:46:41 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:16:54 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	ft_up(t_vars *vars)
 {
@@ -24,6 +24,7 @@ int	ft_up(t_vars *vars)
 	player->img_current = player->imgs->img_back;
 	if (map[player->y - 1][player->x] != '1')
 	{
+		// ft_animation_up(vars, player, player->frames);
 		player->y -= 1;
 		return (1);
 	}

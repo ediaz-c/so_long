@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_player_entity.c                            :+:      :+:    :+:   */
+/*   ft_init_player_entity_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:17:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:40:18 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:04:59 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 static void	ft_img_init(t_player *player, t_mlx *mlx)
 {

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_render.c                                        :+:      :+:    :+:   */
+/*   ft_render_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:30:42 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:48:58 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:09:52 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
-static void	ft_render_entity(t_vars *vars)
+void	ft_render_entity(t_vars *vars)
 {
 	int			n_ent;
 	t_entity	*entity;
@@ -30,7 +30,7 @@ static void	ft_render_entity(t_vars *vars)
 	}
 }
 
-static void	ft_check_collected(t_player *player, t_entity *entity,
+void	ft_check_collected(t_player *player, t_entity *entity,
 		int num_entity, t_exit *door)
 {
 	int	i;
@@ -50,7 +50,7 @@ static void	ft_check_collected(t_player *player, t_entity *entity,
 		door->img_current = door->img_open;
 }
 
-static void	ft_render_door(t_vars *vars)
+void	ft_render_door(t_vars *vars)
 {
 	t_exit	*door;
 	t_mlx	*mlx;

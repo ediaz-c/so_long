@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_game.c                                     :+:      :+:    :+:   */
+/*   ft_print_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/01 16:48:23 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:38:34 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/04/28 10:30:12 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/05/03 18:05:07 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
-void	ft_init_game(t_vars *vars)
+void	ft_print_map(char **map)
 {
-	ft_render_map(vars->map_game, vars->mlx);
-	ft_init_player(vars);
-	ft_init_entity(vars);
-	ft_init_door(vars);
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		ft_printf("%s\n", map[i]);
+		i++;
+	}
 }

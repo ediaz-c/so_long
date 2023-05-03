@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_utils.c                                    :+:      :+:    :+:   */
+/*   ft_init_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:29:32 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:42:49 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:05:01 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 t_entity	*ft_find_entity(char **map, int n_entity)
 {

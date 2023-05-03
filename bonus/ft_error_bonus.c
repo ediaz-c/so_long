@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_game.c                                     :+:      :+:    :+:   */
+/*   ft_error_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/01 16:48:23 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:38:34 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/04/24 15:32:23 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/05/03 18:04:45 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
-void	ft_init_game(t_vars *vars)
+void	ft_error(char *str)
 {
-	ft_render_map(vars->map_game, vars->mlx);
-	ft_init_player(vars);
-	ft_init_entity(vars);
-	ft_init_door(vars);
+	ft_printf("\033[1;31mERROR: \033[0;97m%s\n", str);
+	exit(1);
+}
+
+void	ft_char_error(char c)
+{
+	ft_printf("\033[1;31mERROR: \033[0;97mcCarácter invalido '%c'\n", c);
+	exit(1);
 }

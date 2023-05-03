@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_game.c                                          :+:      :+:    :+:   */
+/*   ft_game_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 18:02:32 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:04:50 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	ft_render_map(char **map, t_mlx *mlx)
 {
@@ -38,7 +38,9 @@ void	ft_render_map(char **map, t_mlx *mlx)
 int	ft_close(int key, t_mlx *mlx)
 {
 	if (key)
-		exit(1);
+		mlx_destroy_window(mlx->mlx, mlx->mlx_win);
+	else
+		mlx_destroy_window(mlx->mlx, mlx->mlx_win);
 	exit(1);
 	return (1);
 }

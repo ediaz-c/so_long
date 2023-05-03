@@ -6,11 +6,18 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:48 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/02 18:04:01 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:02:45 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+// void seeleaks()
+// {
+
+// 	system("leaks -q so_long");
+// }
+// 	atexit(&seeleaks);
 
 int	main(int ac, char *av[])
 {

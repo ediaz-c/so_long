@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_wayout.c                                  :+:      :+:    :+:   */
+/*   ft_check_wayout_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:15:45 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 16:07:09 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:04:43 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 static int	ft_is_wayout(char **map)
 {
