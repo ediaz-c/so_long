@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:15:45 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 18:04:43 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:35:17 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static int	ft_is_wayout(char **map)
 static char	**ft_find_wayout(char **map, int px, int py)
 {
 	map[py][px] = ' ';
-	if (map[py - 1][px] != '1' && map[py - 1][px] != ' ')
+	if (map[py - 1][px] != '1' && map[py - 1][px] != ' ' && map[py - 1][px] != 'Z')
 		map = ft_find_wayout(map, px, py - 1);
-	if (map[py][px + 1] != '1' && map[py][px + 1] != ' ')
+	if (map[py][px + 1] != '1' && map[py][px + 1] != ' ' && map[py][px + 1] != 'Z')
 		map = ft_find_wayout(map, px + 1, py);
-	if (map[py][px - 1] != '1' && map[py][px - 1] != ' ')
+	if (map[py][px - 1] != '1' && map[py][px - 1] != ' ' && map[py][px - 1] != 'Z')
 		map = ft_find_wayout(map, px - 1, py);
-	if (map[py + 1][px] != '1' && map[py + 1][px] != ' ')
+	if (map[py + 1][px] != '1' && map[py + 1][px] != ' ' && map[py + 1][px] != 'Z')
 		map = ft_find_wayout(map, px, py + 1);
 	return (map);
 }

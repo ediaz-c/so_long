@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 18:02:32 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:22:50 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_render_map(char **map, t_mlx *mlx)
 
 int	ft_close(int key, t_mlx *mlx)
 {
-	if (key)
+	if (key && mlx)
 		exit(1);
 	exit(1);
 	return (1);

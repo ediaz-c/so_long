@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 18:04:50 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:59:30 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ void	ft_render_map(char **map, t_mlx *mlx)
 
 int	ft_close(int key, t_mlx *mlx)
 {
-	if (key)
-		mlx_destroy_window(mlx->mlx, mlx->mlx_win);
-	else
-		mlx_destroy_window(mlx->mlx, mlx->mlx_win);
+	if (key && mlx)
+		exit(1);
 	exit(1);
 	return (1);
 }
@@ -88,7 +86,7 @@ static t_mlx	*ft_init_mlx(t_vars *vars)
 			&i, &j);
 	mlx->img_wall = mlx_xpm_file_to_image(mlx->mlx, "./images/wall_game.xpm",
 			&i, &j);
-	mlx->mlx_win = mlx_new_window(mlx->mlx, (vars->x * 64), (vars->y * 64),
+	mlx->mlx_win = mlx_new_window(mlx->mlx, (vars->x * 64), ((vars->y * 64) + 30),
 			"So_long");
 	return (mlx);
 }
@@ -97,12 +95,15 @@ void	ft_game(t_vars *vars)
 {
 	vars->entity = ft_find_entity(vars->map, vars->num_collected);
 	vars->player = ft_find_player(vars->map);
+	vars->enemy = ft_find_enemy(vars->map, vars->num_enemy);
 	vars->mlx = ft_init_mlx(vars);
+	ft_sprites_enemy(vars->mlx, vars->enemy, vars->num_enemy);
 	vars->exit = ft_find_exit(vars->map);
 	if (vars->entity == NULL || vars->player == NULL || vars->mlx == NULL)
 		ft_error("Error");
 	ft_init_game(vars);
-	mlx_key_hook(vars->mlx->mlx_win, ft_player_hook, vars);
+	vars->player->time = 0;
+	mlx_hook(vars->mlx->mlx_win, 2, 1L<<0, ft_player_hook, vars);
 	mlx_loop_hook(vars->mlx->mlx, ft_render, vars);
 	mlx_hook(vars->mlx->mlx_win, 17, (1L << 17), ft_close, vars->mlx);
 	mlx_loop(vars->mlx->mlx);

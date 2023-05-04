@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:34 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 18:04:37 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:10:01 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int	ft_check_map(t_vars *vars)
 		ft_error("Mapa no jugable");
 	vars->x = map_vars.x;
 	vars->y = map_vars.y;
+	vars->num_enemy = map_vars.z;
 	vars->num_collected = map_vars.c;
 	return (1);
 }
