@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_check_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 16:15:47 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:49:33 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/04/23 17:20:23 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/05/03 17:36:43 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_free_split(char **array)
 {
-	char	*str;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (array[i])
+		i++;
+	while (j < i)
+		free(array[j++]);
+	free(array);
+}
+
+int	ft_check_file(const char *str)
+{
+	char	**path;
 	int		i;
 
 	i = 0;
-	if (!s1 && !s2)
+	path = ft_split(str, '/');
+	if (path == NULL)
 		return (0);
-	str = (char *)malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
+	while (path[i] && path[i + 1])
+		i++;
+	if (ft_strnstr(path[i], ".ber", ft_strlen(path[i])) == 0)
 		return (0);
-	while (*s1)
-	{
-		str[i] = *s1;
-		i++;
-		s1++;
-	}
-	while (*s2)
-	{
-		str[i] = *s2;
-		i++;
-		s2++;
-	}
-	str[i] = '\0';
-	return (str);
+	ft_free_split(path);
+	return (1);
 }

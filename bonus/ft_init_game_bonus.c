@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_init_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 16:15:47 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:49:33 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/05/01 16:48:23 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/05/04 13:11:08 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long_bonus.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_init_game(t_vars *vars)
 {
-	char	*str;
-	int		i;
-
-	i = 0;
-	if (!s1 && !s2)
-		return (0);
-	str = (char *)malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
-		return (0);
-	while (*s1)
-	{
-		str[i] = *s1;
-		i++;
-		s1++;
-	}
-	while (*s2)
-	{
-		str[i] = *s2;
-		i++;
-		s2++;
-	}
-	str[i] = '\0';
-	return (str);
+	ft_render_map(vars->map_game, vars->mlx);
+	ft_init_player(vars);
+	ft_init_entity(vars);
+	ft_init_door(vars);
+	ft_init_frames(vars);
 }

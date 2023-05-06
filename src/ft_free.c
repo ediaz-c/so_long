@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 16:15:47 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:49:33 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/04/27 13:58:33 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/05/02 18:03:32 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_free_matriz(char **matriz)
 {
-	char	*str;
-	int		i;
+	int	i;
 
 	i = 0;
-	if (!s1 && !s2)
-		return (0);
-	str = (char *)malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
-		return (0);
-	while (*s1)
+	while (matriz[i] != 0)
 	{
-		str[i] = *s1;
+		free(matriz[i]);
 		i++;
-		s1++;
 	}
-	while (*s2)
-	{
-		str[i] = *s2;
-		i++;
-		s2++;
-	}
-	str[i] = '\0';
-	return (str);
+	free(matriz);
 }

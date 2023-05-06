@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_error_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 16:15:47 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:49:33 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/04/24 15:32:23 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/05/03 18:04:45 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long_bonus.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_error(char *str)
 {
-	char	*str;
-	int		i;
+	ft_printf("\033[1;31mERROR: \033[0;97m%s\n", str);
+	exit(1);
+}
 
-	i = 0;
-	if (!s1 && !s2)
-		return (0);
-	str = (char *)malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
-		return (0);
-	while (*s1)
-	{
-		str[i] = *s1;
-		i++;
-		s1++;
-	}
-	while (*s2)
-	{
-		str[i] = *s2;
-		i++;
-		s2++;
-	}
-	str[i] = '\0';
-	return (str);
+void	ft_char_error(char c)
+{
+	ft_printf("\033[1;31mERROR: \033[0;97mcCarácter invalido '%c'\n", c);
+	exit(1);
 }

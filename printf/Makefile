@@ -19,15 +19,13 @@ LIB		=	ar -rcs
 all:	$(NAME)
 
 $(NAME):	$(OBJS) $(INCLUDE)
-	$(LIB) -r $@ $?
-# BONUS:	$(BONUS_OBJS) $(OBJS)
-#	$(LIB) -r $@ $?
+	@$(LIB) -r $@ $?
 %.o:%.c
-	$(CC) -c $(CFLAGS) $?
+	@$(CC) -c $(CFLAGS) $?
 clean:
-	$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 fclean:	clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 re: fclean all
 
 .PHONY: re fclean clean
