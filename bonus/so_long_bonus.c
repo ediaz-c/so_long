@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:48 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 18:05:12 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:23:18 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
+
+// void seeleaks()
+// {
+// 	system("leaks -q so_long");
+// }
+// 	atexit(&seeleaks);
 
 int	main(int ac, char *av[])
 {
@@ -31,6 +37,4 @@ int	main(int ac, char *av[])
 	{
 		ft_game(&vars);
 	}
-	ft_printf("\n\033[0;92mVA BIEN\n\033[0m");
-	system("leaks a.out");
 }

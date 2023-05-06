@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:30:42 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:48:58 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:18:57 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,15 @@ void	ft_check_end(t_vars *vars)
 	player = vars->player;
 	door = vars->exit;
 	if ((player->x == door->x) && (player->y == door->y))
-		ft_close(KEY_ESC, vars->mlx);
+		ft_win();
 }
 
 int	ft_render(t_vars *vars)
 {
 	ft_render_map(vars->map_game, vars->mlx);
 	ft_render_entity(vars);
-	ft_render_door(vars);
 	ft_render_player(vars);
-	ft_check_collected(vars->player, vars->entity, vars->num_collected, vars->exit);
+	ft_render_door(vars);
 	ft_check_collected(vars->player, vars->entity, vars->num_collected,
 		vars->exit);
 	if (vars->player->rupees == vars->num_collected)

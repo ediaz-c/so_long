@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enemy.c                                         :+:      :+:    :+:   */
+/*   ft_enemy_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:10:26 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/04 19:39:14 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 13:49:53 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ static int	ft_azar_move(t_enemy *enemy, int index, char **map, int time)
 
 	i = 0;
 	time++;
-	if (time >= 200)
+	if (time >= 150)
 	{
 		while (i < index)
-		{	
+		{
 			num = rand() % 4;
-			if (num == 0 && map[enemy[i].y + 1][enemy[i].x] != '1')
+			if (num == 0 && map[enemy[i].y + 1][enemy[i].x] != '1' )
 				enemy[i].y += 1;
-			else if (num == 1 && map[enemy[i].y - 1][enemy[i].x] != '1')
+			else if (num == 1 && map[enemy[i].y - 1][enemy[i].x] != '1' )
 				enemy[i].y -= 1;
-			else if (num == 2 && map[enemy[i].y][enemy[i].x + 1] != '1')
-				enemy[i].x +=1;
-			else if (num == 3 && map[enemy[i].y][enemy[i].x - 1] != '1')
-				enemy[i].x -=1;
+			else if (num == 2 && map[enemy[i].y][enemy[i].x + 1] != '1' )
+				enemy[i].x += 1;
+			else if (num == 3 && map[enemy[i].y][enemy[i].x - 1] != '1' )
+				enemy[i].x -= 1;
 			else
 				ft_azar_move(enemy, index, map, time);
 			time = 0;
@@ -46,25 +46,26 @@ void	ft_sprites_enemy(t_mlx *mlx, t_enemy *enemy, int num_enemy)
 	int	i;
 	int	a;
 	int	b;
-	
+
 	i = 0;
 	while (i < num_enemy)
 	{
-		enemy[i].img = mlx_xpm_file_to_image(mlx->mlx, "./images/enemy/foguito.xpm", &a, &b);
+		enemy[i].img = mlx_xpm_file_to_image(mlx->mlx,
+				"./images/enemy/foguito.xpm", &a, &b);
 		if (enemy[i].img == NULL)
 			ft_error("Sprite de enemigo no cargado");
 		i++;
 	}
 }
 
-t_enemy *ft_find_enemy(char **map, int	num_enemy)
+t_enemy	*ft_find_enemy(char **map, int num_enemy)
 {
 	t_enemy	*enemy;
 	int		i;
 	int		j;
 	int		x;
-	
-	enemy = malloc (sizeof(t_enemy) * (num_enemy));
+
+	enemy = malloc(sizeof(t_enemy) * (num_enemy));
 	if (enemy == NULL)
 		ft_error("Malloc");
 	i = -1;
@@ -82,7 +83,7 @@ t_enemy *ft_find_enemy(char **map, int	num_enemy)
 			}
 		}
 	}
-	return(enemy);
+	return (enemy);
 }
 
 void	ft_render_enemy(t_vars *vars)
@@ -95,13 +96,13 @@ void	ft_render_enemy(t_vars *vars)
 	i = 0;
 	enemy = vars->enemy;
 	mlx = vars->mlx;
-	while(i < vars->num_enemy)
+	while (i < vars->num_enemy)
 	{
-		ft_printf("%d %d\n", enemy[i].x, enemy[i].y);
-		mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, enemy[i].img, (enemy[i].x * 64) + 6, enemy[i].y * 64);
+		mlx_put_image_to_window(mlx->mlx, mlx->mlx_win,
+			enemy[i].img, (enemy[i].x * 64) + 6, enemy[i].y * 64);
 		i++;
 	}
-		time = ft_azar_move(enemy, vars->num_enemy, vars->map_game, time);
+	time = ft_azar_move(enemy, vars->num_enemy, vars->map_game, time);
 }
 
 void	ft_check_dead(t_vars *vars)

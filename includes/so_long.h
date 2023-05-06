@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 11:25:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/02 16:53:41 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:18:28 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,5 @@ int						ft_render(t_vars *vars);
 t_exit					*ft_find_exit(char **map);
 void					ft_init_door(t_vars *vars);
 int						ft_close(int key, t_mlx *mlx);
+void					ft_win(void);
 #endif

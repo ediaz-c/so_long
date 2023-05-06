@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:30:42 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/04 19:21:23 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:09:39 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ void	ft_render_entity(t_vars *vars)
 	{
 		if (entity[n_ent].collected == 0)
 			mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, entity->img,
-					(entity[n_ent].x * 64) + 22, (entity[n_ent].y * 64) + 20);
+				(entity[n_ent].x * 64) + 22, (entity[n_ent].y * 64) + 20);
 		n_ent++;
 	}
 }
 
-void	ft_check_collected(t_player *player, t_entity *entity, int num_entity,
-		t_exit *door)
+void	ft_check_collected(t_player *player, t_entity *entity, int num_entity)
 {
 	int	i;
 
@@ -46,8 +45,6 @@ void	ft_check_collected(t_player *player, t_entity *entity, int num_entity,
 		}
 		i++;
 	}
-	if (player->rupees == num_entity)
-		door->img_current = door->img_open;
 }
 
 void	ft_render_door(t_vars *vars)
@@ -57,8 +54,10 @@ void	ft_render_door(t_vars *vars)
 
 	mlx = vars->mlx;
 	door = vars->exit;
+	if (vars->num_collected == vars->player->rupees)
+		ft_sprites_door(door);
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, door->img_current, (door->x
-				* 64) + 9, door->y * 64);
+			* 64) + 20, door->y * 64);
 }
 
 void	ft_check_end(t_vars *vars)
@@ -80,8 +79,7 @@ int	ft_render(t_vars *vars)
 	ft_render_door(vars);
 	ft_render_enemy(vars);
 	ft_check_dead(vars);
-	ft_check_collected(vars->player, vars->entity, vars->num_collected,
-			vars->exit);
+	ft_check_collected(vars->player, vars->entity, vars->num_collected);
 	ft_put_move(vars);
 	if (vars->player->rupees == vars->num_collected)
 		ft_check_end(vars);

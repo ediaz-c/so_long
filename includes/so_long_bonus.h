@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 11:25:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/04 19:24:57 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:07:18 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
@@ -108,8 +108,11 @@ typedef struct s_exit
 {
 	int							x;
 	int							y;
-	void						*img_close;
-	void						*img_open;
+	int							time;
+	void						*img_1;
+	void						*img_2;
+	void						*img_3;
+	void						*img_4;
 	void						*img_current;
 }								t_exit;
 
@@ -163,9 +166,8 @@ int								ft_close(int key, t_mlx *mlx);
 void							ft_init_frames(t_vars *vars);
 void							ft_render_entity(t_vars *vars);
 void							ft_check_collected(t_player *player,
-						t_entity *entity,
-						int num_entity,
-						t_exit *door);
+									t_entity *entity,
+									int num_entity);
 void							ft_render_door(t_vars *vars);
 void							ft_animation(t_player *player);
 void							ft_put_move(t_vars *vars);
@@ -174,4 +176,5 @@ void							ft_sprites_enemy(t_mlx *mlx, t_enemy *enemy,
 									int num_enemy);
 void							ft_render_enemy(t_vars *vars);
 void							ft_check_dead(t_vars *vars);
+int								ft_sprites_door(t_exit *door);
 #endif

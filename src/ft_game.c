@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_game.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/04 12:22:50 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:15:17 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_render_map(char **map, t_mlx *mlx)
 	int	y;
 
 	y = 0;
+	if (map == NULL)
+		ft_error("Error en el mapa");
 	while (map[y])
 	{
 		x = 0;
@@ -82,12 +84,16 @@ static t_mlx	*ft_init_mlx(t_vars *vars)
 	if (mlx == NULL)
 		return (NULL);
 	mlx->mlx = mlx_init();
+	if (mlx->mlx == NULL)
+		ft_error("Mlx no iniciada");
 	mlx->img_floor = mlx_xpm_file_to_image(mlx->mlx, "./images/floor_game.xpm",
 			&i, &j);
 	mlx->img_wall = mlx_xpm_file_to_image(mlx->mlx, "./images/wall_game.xpm",
 			&i, &j);
 	mlx->mlx_win = mlx_new_window(mlx->mlx, (vars->x * 64), (vars->y * 64),
 			"So_long");
+	if (mlx->mlx_win == NULL || mlx->img_floor == NULL || mlx->img_wall == NULL)
+		ft_error("Variables de la mlx no iniciadas");
 	return (mlx);
 }
 
@@ -97,7 +103,8 @@ void	ft_game(t_vars *vars)
 	vars->player = ft_find_player(vars->map);
 	vars->mlx = ft_init_mlx(vars);
 	vars->exit = ft_find_exit(vars->map);
-	if (vars->entity == NULL || vars->player == NULL || vars->mlx == NULL)
+	if (vars->entity == NULL || vars->player == NULL
+		|| vars->mlx == NULL || vars->exit == NULL)
 		ft_error("Error");
 	ft_init_game(vars);
 	mlx_key_hook(vars->mlx->mlx_win, ft_player_hook, vars);

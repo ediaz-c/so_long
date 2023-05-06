@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:34 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/04 19:09:43 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 13:51:59 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,10 @@ static int	ft_check_border_map(t_vars vars)
 
 static void	ft_check_characters(char **map)
 {
-	char	*char_permit;
 	int		i;
 	int		j;
 
 	i = 0;
-	char_permit = "10PCEZ";
 	while (map[i])
 	{
 		j = 0;
@@ -71,8 +69,6 @@ static t_map	ft_get_elements(char **map)
 				vars_map.p ++;
 			else if (map[i][j] == 'E')
 				vars_map.e ++;
-			else if (map[i][j] == 'Z')
-				vars_map.z ++;
 		}
 	}
 	vars_map.x = j;

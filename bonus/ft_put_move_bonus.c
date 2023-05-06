@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_move.c                                      :+:      :+:    :+:   */
+/*   ft_put_move_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:09:35 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/04 15:28:25 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 12:03:50 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ void	ft_put_move(t_vars *vars)
 	str = ft_itoa(vars->player->move);
 	move = ft_strjoin(move, str);
 	free(str);
-	mlx_string_put(mlx->mlx, mlx->mlx_win, vars->x * 30, (vars->y * 64) + 5, 191910199, move);
+	mlx_string_put(mlx->mlx, mlx->mlx_win,
+		vars->x * 30, (vars->y * 64) + 5, 191910199, move);
 	rupees = ft_strdup("RUPEES: ");
 	str = ft_itoa(vars->player->rupees);
 	rupees = ft_strjoin(rupees, str);
-	mlx_string_put(mlx->mlx, mlx->mlx_win, vars->x * 15, (vars->y * 64) + 5, 999999000, rupees);
+	mlx_string_put(mlx->mlx, mlx->mlx_win,
+		vars->x * 15, (vars->y * 64) + 5, 999999000, rupees);
 	free(str);
 	free(rupees);
 	free(move);
