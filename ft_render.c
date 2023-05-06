@@ -74,10 +74,9 @@ int	ft_render(t_vars *vars)
 {
 	ft_render_map(vars->map_game, vars->mlx);
 	ft_render_entity(vars);
-	ft_render_player(vars);
 	ft_render_door(vars);
+	ft_render_player(vars);
 	ft_check_collected(vars->player, vars->entity, vars->num_collected, vars->exit);
-	// ft_check_door(vars);
 	if (vars->player->rupees == vars->num_collected)
 		ft_check_end(vars);
 	return (1);

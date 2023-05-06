@@ -62,7 +62,7 @@ static int	ft_player_hook(int key, t_vars *vars)
 	if (ismove)
 	{
 		vars->player->move++;
-		ft_printf("MOVES: %d\n", vars->player->move);
+		ft_printf("\033[1;37mMOVES: \033[1;31m%d\033[0m\n", vars->player->move);
 	}
 	return (1);
 }
