@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:30:42 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 15:09:39 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:33:02 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_check_end(t_vars *vars)
 	player = vars->player;
 	door = vars->exit;
 	if ((player->x == door->x) && (player->y == door->y))
-		ft_close(KEY_ESC, vars->mlx);
+		ft_win();
 }
 
 int	ft_render(t_vars *vars)

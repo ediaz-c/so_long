@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:46:52 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 15:10:54 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:30:35 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_sprites_door(t_exit *door)
 {
 	int	delay;
 
-	ft_printf("%d", door->time);
 	door->time++;
 	delay = door->time;
 	if (delay >= 20 && delay <= 80)

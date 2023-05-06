@@ -6,40 +6,11 @@
 /*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:10:26 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 13:49:53 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:33:13 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
-
-static int	ft_azar_move(t_enemy *enemy, int index, char **map, int time)
-{
-	int	num;
-	int	i;
-
-	i = 0;
-	time++;
-	if (time >= 150)
-	{
-		while (i < index)
-		{
-			num = rand() % 4;
-			if (num == 0 && map[enemy[i].y + 1][enemy[i].x] != '1' )
-				enemy[i].y += 1;
-			else if (num == 1 && map[enemy[i].y - 1][enemy[i].x] != '1' )
-				enemy[i].y -= 1;
-			else if (num == 2 && map[enemy[i].y][enemy[i].x + 1] != '1' )
-				enemy[i].x += 1;
-			else if (num == 3 && map[enemy[i].y][enemy[i].x - 1] != '1' )
-				enemy[i].x -= 1;
-			else
-				ft_azar_move(enemy, index, map, time);
-			time = 0;
-			i++;
-		}
-	}
-	return (time);
-}
 
 void	ft_sprites_enemy(t_mlx *mlx, t_enemy *enemy, int num_enemy)
 {
@@ -89,7 +60,6 @@ t_enemy	*ft_find_enemy(char **map, int num_enemy)
 void	ft_render_enemy(t_vars *vars)
 {
 	int			i;
-	static int	time;
 	t_enemy		*enemy;
 	t_mlx		*mlx;
 
@@ -102,7 +72,6 @@ void	ft_render_enemy(t_vars *vars)
 			enemy[i].img, (enemy[i].x * 64) + 6, enemy[i].y * 64);
 		i++;
 	}
-	time = ft_azar_move(enemy, vars->num_enemy, vars->map_game, time);
 }
 
 void	ft_check_dead(t_vars *vars)
@@ -117,7 +86,7 @@ void	ft_check_dead(t_vars *vars)
 	while (i < vars->num_enemy)
 	{
 		if (player->x == enemy[i].x && player->y == enemy[i].y)
-			ft_error("Has muerto");
+			ft_dead();
 		i++;
 	}
 }

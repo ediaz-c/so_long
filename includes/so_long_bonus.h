@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 11:25:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 15:07:18 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:32:44 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,4 +177,6 @@ void							ft_sprites_enemy(t_mlx *mlx, t_enemy *enemy,
 void							ft_render_enemy(t_vars *vars);
 void							ft_check_dead(t_vars *vars);
 int								ft_sprites_door(t_exit *door);
+void							ft_dead(void);
+void							ft_win(void);
 #endif
