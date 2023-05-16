@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:48 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 14:23:18 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/08 09:49:54 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 // {
 // 	system("leaks -q so_long");
 // }
-// 	atexit(&seeleaks);
-
+// atexit(&seeleaks);
 int	main(int ac, char *av[])
 {
 	t_vars	vars;

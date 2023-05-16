@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_player_entity_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:17:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 15:06:18 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:18:20 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	ft_init_door(t_vars *vars)
 	door->img_4 = mlx_xpm_file_to_image(mlx->mlx,
 			"./images/exit/portal_4.xpm", &i, &j);
 	door->img_current = door->img_1;
+	if (!door->img_1 || !door->img_2 || !door->img_3 || !door->img_4)
+		ft_error("Sprites no cargados");
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, door->img_current, (door->x
 			* 64) + 10, door->y * 64);
 }

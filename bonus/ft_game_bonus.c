@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_game_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 15:28:25 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:14:08 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_render_map(char **map, t_mlx *mlx)
 			if (map[y][x] == '1')
 				mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img_wall, x
 					* 64, y * 64);
-			else if (map[y][x] == ' ' || map[y][x] == 'Z')
+			else if (map[y][x] == ' ' || map[y][x] == 'Z' || map[y][x] == '0')
 				mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img_floor,
 					x * 64, y * 64);
 			x++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_game.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 14:15:17 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:20:14 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	ft_player_hook(int key, t_vars *vars)
 	if (ismove)
 	{
 		vars->player->move++;
-		ft_printf("\033[1;37mMOVES: \033[1;31m%d\033[0m\n", vars->player->move);
+		ft_printf("\033c\033[1;37mMOVES: \033[1;31m%d\033[0m\n", vars->player->move);
 	}
 	return (1);
 }
@@ -107,7 +107,7 @@ void	ft_game(t_vars *vars)
 		|| vars->mlx == NULL || vars->exit == NULL)
 		ft_error("Error");
 	ft_init_game(vars);
-	mlx_key_hook(vars->mlx->mlx_win, ft_player_hook, vars);
+	mlx_hook(vars->mlx->mlx_win, 2, (1L << 0), ft_player_hook, vars);
 	mlx_loop_hook(vars->mlx->mlx, ft_render, vars);
 	mlx_hook(vars->mlx->mlx_win, 17, (1L << 17), ft_close, vars->mlx);
 	mlx_loop(vars->mlx->mlx);

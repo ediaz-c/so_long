@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+         #
+#    By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:32:01 by ediaz--c          #+#    #+#              #
-#    Updated: 2023/05/06 14:57:50 by ediaz--c         ###   ########.fr        #
+#    Updated: 2023/05/08 09:49:14 by ediaz--c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,9 @@ Yellow	=	"\033[0;33m"
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS_GAME) $(OBJS_GNL) 
+$(NAME):	$(OBJS_GAME) $(OBJS_GNL)
+	@clear
+	@printf $(BBlue)" Archivos compilados\n"$(Off)
 	@echo $(BBlue) "Creando Libreria de LIBFT" $(Off)
 	@make -C libft/
 	@echo $(BBlue) "Creando Libreria de PRINTF" $(Off)
@@ -55,6 +57,8 @@ $(NAME):	$(OBJS_GAME) $(OBJS_GNL)
 	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJS_GAME) $(OBJS_GNL) -o $(NAME)
 
 bonus:	$(OBJS_GAME_BONUS) $(OBJS_GNL)
+	@clear
+	@printf $(BBlue)" Archivos del bonus compilados\n"$(Off)
 	@echo $(BBlue) "Creando Libreria de LIBFT" $(Off)
 	@make -C libft/
 	@echo $(BBlue) "Creando Libreria de PRINTF" $(Off)
@@ -114,6 +118,7 @@ fclean:	clean
 	@sleep 0.5; printf " ✅ so_long\n"$(Off)
 	@$(RM) $(NAME)
 
-re: fclean all
+re:	fclean all
+reBonus:	fcleanBonus bonus
 
 .PHONY: re clean fclean norm
