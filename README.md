@@ -14,9 +14,9 @@ El proyecto tiene una parte **obligatoria** y un **bonus**.
 Para iniciar el juego, hay que ejecutar **so_long** y como argumento la ruta al archivo del mapa a jugar.
 ### Mandatory
     $ make
-    $ ./so_long {ruta al archivo .ber}
 ### Bonus
     $ make bonus
+### Ejecución
     $ ./so_long {ruta al archivo .ber}
 - El objetivo es recolectar todos los objetos y salir por la puerta.
 - Para mover al personaje se puedes usar las **flechas** o **W, A, S, D**.
