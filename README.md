@@ -1,5 +1,4 @@
 # So_long
-### <p align="center" ><a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/clfb0vfvr000608l3yax664zq/project/3072904" alt="ediaz--c's 42 so_long Score" /></a></p>
 El proyecto **so_long** consiste en crear un juego en **2D** en C.
 
 El primer proyecto de gráficos del cursus, el que se utilizarán ventanas, colores, eventos, texturas, etc.
