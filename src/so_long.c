@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:48 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/08 09:50:03 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:38:56 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int	main(int ac, char *av[])
 {
 	t_vars	vars;
 	char	*path;
-	int		i;
 
-	i = -1;
 	path = av[1];
 	if (ac != 2)
 		ft_error("Número de argumentos invalido");

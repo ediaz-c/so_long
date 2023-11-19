@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:03:34 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/04 19:10:01 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:43:46 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,10 @@ static int	ft_check_border_map(t_vars vars)
 
 static void	ft_check_characters(char **map)
 {
-	char	*char_permit;
 	int		i;
 	int		j;
 
 	i = 0;
-	char_permit = "10PCEZ";
 	while (map[i])
 	{
 		j = 0;

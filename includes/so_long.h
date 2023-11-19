@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 11:25:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/06 14:18:28 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:37:46 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
 # include "../printf/ft_printf.h"
-# include <mlx.h>
+# include "../mlx/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 

@@ -18,7 +18,7 @@ LIB		=	ar -rcs
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS) $(INCLUDE)
+$(NAME):	$(OBJS)
 	@$(LIB) -r $@ $?
 %.o:%.c
 	@$(CC) -c $(CFLAGS) $?

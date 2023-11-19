@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_game_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:58:40 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/16 12:14:08 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:44:01 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,9 @@ int	ft_close(int key, t_mlx *mlx)
 
 static int	ft_player_hook(int key, t_vars *vars)
 {
-	int	j;
-	int	i;
 	int	ismove;
 
 	ismove = 0;
-	i = 0;
-	j = 0;
 	if (key == KEY_UP || key == KEY_W)
 		ismove = ft_up(vars);
 	else if (key == KEY_LEFT || key == KEY_A)

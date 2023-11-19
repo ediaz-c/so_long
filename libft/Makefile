@@ -11,7 +11,7 @@ LIB		=	ar -rcs
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS) $(INCLUDE)
+$(NAME):	$(OBJS)
 	@$(LIB) -r $@ $?
 bonus:	 $(BOBJS) $(OBJS)
 	@$(LIB) -r $(NAME) $?

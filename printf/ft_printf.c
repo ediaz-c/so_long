@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 21:23:28 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/04/13 21:24:04 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:39:23 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@
 */
 int	ft_handler_flags(va_list args, char format)
 {
-	int	len;
-
-	len = 0;
 	if (format == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (format == 's')

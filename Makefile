@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+         #
+#    By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:32:01 by ediaz--c          #+#    #+#              #
-#    Updated: 2023/05/08 09:49:14 by ediaz--c         ###   ########.fr        #
+#    Updated: 2023/11/19 13:47:36 by ediaz--c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME_BONUS			=	so_long_bonus
 RM				=	rm -rf
 CC				=	cc
 CFLAGS			=	-Wall -Werror -Wextra
-INCLUDE			=	-lmlx -framework AppKit -framework OpenGL
+INCLUDE			=	-L./mlx/ -lmlx -framework AppKit -framework OpenGL
 LIBFT_LIB		=	libft/libft.a
 PRINTF_LIB		=	printf/libftprintf.a
 
@@ -54,7 +54,8 @@ $(NAME):	$(OBJS_GAME) $(OBJS_GNL)
 	@make -C libft/
 	@echo $(BBlue) "Creando Libreria de PRINTF" $(Off)
 	@make -C printf/
-	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJS_GAME) $(OBJS_GNL) -o $(NAME)
+	@make -C mlx/
+	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) mlx/libmlx.a $(OBJS_GAME) $(OBJS_GNL) -o $(NAME)
 
 bonus:	$(OBJS_GAME_BONUS) $(OBJS_GNL)
 	@clear
@@ -63,7 +64,7 @@ bonus:	$(OBJS_GAME_BONUS) $(OBJS_GNL)
 	@make -C libft/
 	@echo $(BBlue) "Creando Libreria de PRINTF" $(Off)
 	@make -C printf/
-	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJS_GAME_BONUS) $(OBJS_GNL) -o $(NAME_BONUS)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_LIB) $(PRINTF_LIB) mlx/libmlx.a $(OBJS_GAME_BONUS) $(OBJS_GNL) -o $(NAME_BONUS)
 	
 norm:
 	@printf $(BBlue)"Norma SRC:"$(Yellow)"\n"
@@ -86,6 +87,7 @@ cleanBonus:
 	@sleep 0.5
 	@printf " ✅ Printf\n"
 	@make clean -C printf
+	@make clean -C mlx
 	@sleep 0.5; printf " ✅ Get_next_line\n"
 	@sleep 0.5; printf  " ✅ So_long_bonus\n\n"$(Off)
 	@$(RM) $(OBJS_GAME_BONUS) $(OBJS_GNL)
@@ -105,6 +107,7 @@ clean:
 	@sleep 0.5
 	@printf " ✅ Printf\n"
 	@make clean -C printf
+	@make clean -C mlx
 	@sleep 0.5; printf " ✅ Get_next_line\n"
 	@sleep 0.5; printf  " ✅ So_long\n\n"$(Off)
 	@$(RM) $(OBJS_GAME) $(OBJS_GNL)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_movements.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:14:22 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/05/03 17:46:41 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:38:38 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int	ft_up(t_vars *vars)
 {
 	t_player	*player;
-	t_mlx		*mlx;
 	char		**map;
 
 	player = vars->player;
-	mlx = vars->mlx;
 	map = vars->map;
 	player->img_current = player->imgs->img_back;
 	if (map[player->y - 1][player->x] != '1')
@@ -33,12 +31,10 @@ int	ft_up(t_vars *vars)
 int	ft_down(t_vars *vars)
 {
 	t_player	*player;
-	t_mlx		*mlx;
 	char		**map;
 
 	map = vars->map;
 	player = vars->player;
-	mlx = vars->mlx;
 	player->img_current = player->imgs->img_front;
 	if (map[player->y + 1][player->x] != '1')
 	{
@@ -51,12 +47,10 @@ int	ft_down(t_vars *vars)
 int	ft_right(t_vars *vars)
 {
 	t_player	*player;
-	t_mlx		*mlx;
 	char		**map;
 
 	map = vars->map;
 	player = vars->player;
-	mlx = vars->mlx;
 	player->img_current = player->imgs->img_right;
 	if (map[player->y][player->x + 1] != '1')
 	{
@@ -69,12 +63,10 @@ int	ft_right(t_vars *vars)
 int	ft_left(t_vars *vars)
 {
 	t_player	*player;
-	t_mlx		*mlx;
 	char		**map;
 
 	map = vars->map;
 	player = vars->player;
-	mlx = vars->mlx;
 	player->img_current = player->imgs->img_left;
 	if (map[player->y][player->x - 1] != '1')
 	{
